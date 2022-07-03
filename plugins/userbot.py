@@ -31,7 +31,7 @@ async def index_files(bot, message):
             try:
                 async with user_bot:
                     for chat in chats:
-                        
+
                         async for user_message in user_bot.iter_history(chat):
                             try:
                                 message = await bot.get_messages(
@@ -46,7 +46,7 @@ async def index_files(bot, message):
                                     user_message.message_id,
                                     replies=0,
                                 )
-                            
+
                             for file_type in ("document", "video", "audio"):
                                 media = getattr(message, file_type, None)
                                 if media is not None:
